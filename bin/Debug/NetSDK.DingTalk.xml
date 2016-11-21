@@ -1,0 +1,872 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NetSDK.DingTalk</name>
+    </assembly>
+    <members>
+        <member name="T:NetSDK.DingTalk.CorpClient">
+            <summary>
+            不打算做async处理，太累,
+            可以静态化此对象实例在整个程序中使用(线程安全）
+            </summary>
+        </member>
+        <member name="M:NetSDK.DingTalk.CorpClient.#ctor(System.String,System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="corpId"></param>
+            <param name="corpSecret"></param>
+        </member>
+        <member name="P:NetSDK.DingTalk.CorpClient.CorpId">
+            <summary>
+            公司ID
+            </summary>
+        </member>
+        <member name="M:NetSDK.DingTalk.CorpClient.GetAccessToken">
+            <summary>
+            获取钉钉API AccessToken
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NetSDK.DingTalk.CorpClient.GetAllDepartment">
+            <summary>
+            获取所有部门
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NetSDK.DingTalk.CorpClient.GetDepartments(System.Int64)">
+            <summary>
+            获取部门列表
+            </summary>
+            <param name="parentid">父部门id,根部门为1</param>
+            <returns></returns>
+        </member>
+        <member name="M:NetSDK.DingTalk.CorpClient.GetDepartment(System.Int64)">
+            <summary>
+            获取部门详情
+            </summary>
+            <param name="id">部门id</param>
+            <returns></returns>
+        </member>
+        <member name="M:NetSDK.DingTalk.CorpClient.GetAllUser">
+            <summary>
+            获取所有成员（详情）
+            </summary>
+        </member>
+        <member name="M:NetSDK.DingTalk.CorpClient.GetUserSimpleList(System.Int64)">
+            <summary>
+            获取部门成员
+            </summary>
+            <param name="department_id">获取的部门id</param>
+            <returns></returns>
+        </member>
+        <member name="M:NetSDK.DingTalk.CorpClient.GetUserList(System.Int64)">
+            <summary>
+            获取部门成员（详情）
+            </summary>
+            <param name="department_id">获取的部门id</param>
+            <returns></returns>
+        </member>
+        <member name="M:NetSDK.DingTalk.CorpClient.GetUser(System.String)">
+            <summary>
+            获取成员详情
+            </summary>
+            <param name="userid">员工在企业内的UserID，企业用来唯一标识用户的字段。</param>
+            <returns></returns>
+        </member>
+        <member name="M:NetSDK.DingTalk.CorpClient.GetAttendanceList(System.DateTime,System.DateTime,System.String)">
+            <summary>
+            查询考勤打卡记录的起始时间
+            </summary>
+            <param name="workDateFrom">[必须]查询考勤打卡记录的起始时间</param>
+            <param name="workDateTo">[必须]查询考勤打卡记录的结束时间</param>
+            <param name="userId">[可选]员工在企业内的UserID，企业用来唯一标识用户的字段</param>
+            <returns>考勤列表</returns>
+        </member>
+        <member name="M:NetSDK.DingTalk.CorpClient.CreateMicroapp(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            创建微应用
+            </summary>
+            <param name="appIcon">[必须]微应用的图标。需要调用上传接口将图标上传到钉钉服务器后获取到的mediaId</param>
+            <param name="appName">[必须]微应用的名称。长度限制为1~10个字符</param>
+            <param name="appDesc">[必须]微应用的描述。长度限制为1~20个字符</param>
+            <param name="homepageUrl">[必须]微应用的移动端主页，必须以http开头或https开头</param>
+            <param name="pcHomepageUrl">[可选]微应用的PC端主页，必须以http开头或https开头，如果不为空则必须与homepageUrl的域名一致</param>
+            <param name="ompLink">[可选]微应用的OA后台管理主页，必须以http开头或https开头</param>
+            <returns>微应用ID</returns>
+        </member>
+        <member name="M:NetSDK.DingTalk.CorpClient.GetMicroappVisibleScope(System.Int64)">
+            <summary>
+            获取企业设置的微应用可见范围
+            </summary>
+            <param name="agentId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NetSDK.DingTalk.CorpClient.SetMicroappVisibleScope(System.Int64,NetSDK.DingTalk.DataContracts.Microapp.VisibleScope)">
+            <summary>
+            设置企业设置的微应用可见范围
+            </summary>
+            <param name="agentId">微应用agentId</param>
+            <param name="scope"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NetSDK.DingTalk.CorpClient.UploadMedia(System.String,System.String)">
+            <summary>
+            上传媒体文件，上传的媒体文件限制：图片（image）:1MB，支持JPG格式；语音（voice）：2MB，播放长度不超过60s，AMR格式；普通文件（file）：10MB
+            </summary>
+            <param name="type">[必须]媒体文件类型，分别有图片（image）、语音（voice）、普通文件(file)</param>
+            <param name="filePath">要上传的文件路径</param>
+            <returns>返回media id</returns>
+        </member>
+        <member name="M:NetSDK.DingTalk.CorpClient.GetUserInfo(System.String)">
+            <summary>
+            [免登]通过CODE换取用户身份
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NetSDK.DingTalk.CorpClient.GetJsapiTicket">
+            <summary>
+            获取jsapi_ticket
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:NetSDK.DingTalk.CorpClient.jsapi_ticket.ticket">
+            <summary>
+            用于JS API的临时票据
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.CorpClient.jsapi_ticket.expires_in">
+            <summary>
+            票据过期时间,示例:7200
+            </summary>
+        </member>
+        <member name="M:NetSDK.DingTalk.CorpClient.SendMessage(NetSDK.DingTalk.DataContracts.SendMessageRequest)">
+            <summary>
+            发送企业会话消息
+            </summary>
+            <param name="reqData"></param>
+            <returns>如果收件人、部门或标签不存在，发送仍然执行，但返回无效的部分。</returns>
+        </member>
+        <member name="T:NetSDK.DingTalk.DingTalkException">
+            <summary>
+            Represents errors that occur during application execution.
+            </summary>
+        </member>
+        <member name="M:NetSDK.DingTalk.DingTalkException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the System.Exception class.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception</param>
+        </member>
+        <member name="P:NetSDK.DingTalk.DingTalkException.Result">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NetSDK.DingTalk.Extensions.CheckResult``1(RestSharp.IRestResponse{``0})">
+            <summary>
+            检查钉钉API返回结果，如果有错，则抛出DingTalkException异常
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="restResp"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NetSDK.DingTalk.DataContracts.Message">
+            <summary>
+            消息类型及数据格式
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Message.msgtype">
+            <summary>
+            消息类型，此时固定为：text
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Message.msgbody">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NetSDK.DingTalk.DataContracts.TextMessage">
+            <summary>
+            text消息
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.TextMessage.msgtype">
+            <summary>
+            消息类型，此时固定为：text
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.TextMessage.msgbody">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.TextMessage.text">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NetSDK.DingTalk.DataContracts.TextMessageBody">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.TextMessageBody.content">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NetSDK.DingTalk.DataContracts.ImageMessage">
+            <summary>
+            image消息
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.ImageMessage.msgtype">
+            <summary>
+            消息类型，此时固定为：image
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.ImageMessage.msgbody">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.ImageMessage.image">
+            <summary>
+            图片媒体文件id，可以调用上传媒体文件接口获取。建议宽600像素 x 400像素，宽高比3：2
+            </summary>
+        </member>
+        <member name="T:NetSDK.DingTalk.DataContracts.ImageMessageBody">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.ImageMessageBody.media_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NetSDK.DingTalk.DataContracts.VoiceMessage">
+            <summary>
+            voice消息
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.VoiceMessage.msgtype">
+            <summary>
+            消息类型，此时固定为：voice
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.VoiceMessage.msgbody">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.VoiceMessage.voice">
+            <summary>
+            voice消息内容
+            </summary>
+        </member>
+        <member name="T:NetSDK.DingTalk.DataContracts.VoiceMessageBody">
+            <summary>
+            voice消息内容
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.VoiceMessageBody.media_id">
+            <summary>
+            语音媒体文件id，可以调用上传媒体文件接口获取。2MB，播放长度不超过60s，AMR格式
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.VoiceMessageBody.duration">
+            <summary>
+            正整数，小于60，表示音频时长
+            </summary>
+        </member>
+        <member name="T:NetSDK.DingTalk.DataContracts.FileMessage">
+            <summary>
+            file消息
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.FileMessage.msgtype">
+            <summary>
+            消息类型，此时固定为：voice
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.FileMessage.msgbody">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.FileMessage.file">
+            <summary>
+            voice消息内容
+            </summary>
+        </member>
+        <member name="T:NetSDK.DingTalk.DataContracts.FileMessageBody">
+            <summary>
+            file消息内容
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.FileMessageBody.media_id">
+            <summary>
+            媒体文件id，可以调用上传媒体文件接口获取。10MB
+            </summary>
+        </member>
+        <member name="T:NetSDK.DingTalk.DataContracts.LinkMessage">
+            <summary>
+            link消息
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.LinkMessage.msgtype">
+            <summary>
+            消息类型，此时固定为：link
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.LinkMessage.msgbody">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.LinkMessage.link">
+            <summary>
+            voice消息内容
+            </summary>
+        </member>
+        <member name="T:NetSDK.DingTalk.DataContracts.LinkMessageBody">
+            <summary>
+            link消息内容
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.LinkMessageBody.messageUrl">
+            <summary>
+            消息点击链接地址
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.LinkMessageBody.picUrl">
+            <summary>
+            图片媒体文件id，可以调用上传媒体文件接口获取
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.LinkMessageBody.title">
+            <summary>
+            消息标题
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.LinkMessageBody.text">
+            <summary>
+            消息描述
+            </summary>
+        </member>
+        <member name="T:NetSDK.DingTalk.DataContracts.SendMessageRequest">
+            <summary>
+            发送企业会话消息请求信息
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.SendMessageRequest.touser">
+            <summary>
+            员工id列表（消息接收者，多个接收者用|分隔）
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.SendMessageRequest.toparty">
+            <summary>
+            部门id列表，多个接收者用|分隔。touser或者toparty 二者有一个必填
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.SendMessageRequest.agentid">
+            <summary>
+            企业应用id，这个值代表以哪个应用的名义发送消息
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.SendMessageRequest.message">
+            <summary>
+            消息发送内容
+            </summary>
+        </member>
+        <member name="T:NetSDK.DingTalk.DataContracts.SendMessageResult">
+            <summary>
+            发送企业会话消息结果信息
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.SendMessageResult.invaliduser">
+            <summary>
+            无效的userid,例："invaliduser": "UserID1|UserID2"
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.SendMessageResult.invalidparty">
+            <summary>
+            无效的部门id,例: "invalidparty":"PartyID1"
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.SendMessageResult.forbiddenUserId">
+            <summary>
+            因发送消息过于频繁或超量而被流控禁止发送的userid。未被禁止的接收者仍会被成功发送。限流规则包括：
+            1、给同一用户发相同内容消息一天仅允许一次；
+            2、如果是ISV接入方式，给同一用户发消息一天不得超过100次；如果是企业接入方式，此上限为500。
+            ,例: "forbiddenUserId": "UserID1|UserID2"
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.SendMessageResult.messageId">
+            <summary>
+            标识企业消息的id，字符串，最长128个字符,例:  "messageId":"xxxxxxxxxxxxxxxx"
+            </summary>
+        </member>
+        <member name="T:NetSDK.DingTalk.DataContracts.AccessToken">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.AccessToken.access_token">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NetSDK.DingTalk.DataContracts.AttendanceList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NetSDK.DingTalk.DataContracts.Attendance">
+            <summary>
+            考勤记录
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Attendance.id">
+            <summary>
+            唯一标示ID
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Attendance.groupId">
+            <summary>
+            考勤组ID
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Attendance.planId">
+            <summary>
+            排班ID
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Attendance.recordId">
+            <summary>
+            打卡记录ID
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Attendance.workDate">
+            <summary>
+            工作日
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Attendance.userId">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Attendance.checkType">
+            <summary>
+            考勤类型（OnDuty：上班，OffDuty：下班）
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Attendance.sourceType">
+            <summary>
+            数据来源（ATM：考勤机,USER：用户打卡,BOSS：老板改签,APPROVE：审批系统,RECHECK：重新计算, SYSTEM：考勤系统）
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Attendance.timeResult">
+            <summary>
+            时间结果（Normal:正常;Early:早退; Late:迟到;SeriousLate:严重迟到；NotSigned:未打卡）
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Attendance.locationResult">
+            <summary>
+            位置结果（Normal:范围内；Outside:范围外）
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Attendance.approveResult">
+            <summary>
+            打卡审批结果（ Leave(1, “请假”),GoOut(3, “外出”),BusinessTrip(2, “出差”),FreeAttend(6, “免打卡”);）
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Attendance.approveId">
+            <summary>
+            关联的审批id
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Attendance.baseCheckTime">
+            <summary>
+            计算迟到和早退，基准时间
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Attendance.userCheckTime">
+            <summary>
+            实际打卡时间
+            </summary>
+        </member>
+        <member name="M:NetSDK.DingTalk.DataContracts.Attendance.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:NetSDK.DingTalk.DataContracts.BaseResult">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.BaseResult.errcode">
+            <summary>
+            错误码
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.BaseResult.errmsg">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="T:NetSDK.DingTalk.DataContracts.Department">
+            <summary>
+            部门信息
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Department.id">
+            <summary>
+            部门id
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Department.name">
+            <summary>
+            部门名称
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Department.parentid">
+            <summary>
+            父部门id，根部门为1
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Department.order">
+            <summary>
+            [详情]在父部门中的次序值
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Department.createDeptGroup">
+            <summary>
+            [详情]是否同步创建一个关联此部门的企业群, true表示是, false表示不是
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Department.autoAddUser">
+            <summary>
+            [详情]当群已经创建后，是否有新人加入部门会自动加入该群, true表示是, false表示不是
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Department.deptHiding">
+            <summary>
+            [详情]是否隐藏部门, true表示隐藏, false表示显示
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Department.deptPerimits">
+            <summary>
+            [详情]可以查看指定隐藏部门的其他部门列表，如果部门隐藏，则此值生效，取值为其他的部门id组成的的字符串，使用|符号进行分割
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Department.userPerimits">
+            <summary>
+            [详情]可以查看指定隐藏部门的其他人员列表，如果部门隐藏，则此值生效，取值为其他的人员userid组成的的字符串，使用|符号进行分割
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Department.outerDept">
+            <summary>
+            [详情]是否本部门的员工仅可见员工自己, 为true时，本部门员工默认只能看到员工自己
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Department.outerPermitDepts">
+            <summary>
+            [详情]本部门的员工仅可见员工自己为true时，可以配置额外可见部门，值为部门id组成的的字符串，使用|符号进行分割
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Department.outerPermitUsers">
+            <summary>
+            [详情]本部门的员工仅可见员工自己为true时，可以配置额外可见人员，值为userid组成的的字符串，使用| 符号进行分割
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Department.orgDeptOwner">
+            <summary>
+            [详情]企业群群主
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Department.deptManagerUseridList">
+            <summary>
+            [详情]部门的主管列表,取值为由主管的userid组成的字符串，不同的userid使用|符号进行分割
+            </summary>
+        </member>
+        <member name="M:NetSDK.DingTalk.DataContracts.Department.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.UploadMediaResult.type">
+            <summary>
+            媒体文件类型，分别有图片（image）、语音（voice）、普通文件(file)
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.UploadMediaResult.media_id">
+            <summary>
+            媒体文件上传后获取的唯一标识
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.UploadMediaResult.created_at">
+            <summary>
+            媒体文件上传时间戳
+            </summary>
+        </member>
+        <member name="T:NetSDK.DingTalk.DataContracts.OpenId">
+            <summary>
+            免登用户身份
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.OpenId.userid">
+            <summary>
+            员工在企业内的UserID
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.OpenId.deviceId">
+            <summary>
+            手机设备号,由钉钉在安装时随机产生
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.OpenId.is_sys">
+            <summary>
+            是否是管理员
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.OpenId.sys_level">
+            <summary>
+            级别，0：非管理员 1：超级管理员（主管理员） 2：普通管理员（子管理员） 100：老板;
+            示例:0|1|2
+            </summary>
+        </member>
+        <member name="T:NetSDK.DingTalk.DataContracts.Microapp">
+            <summary>
+            微应用
+            </summary>
+        </member>
+        <member name="T:NetSDK.DingTalk.DataContracts.Microapp.CreateResult">
+            <summary>
+            创建微应用结果
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Microapp.CreateResult.agentid">
+            <summary>
+            创建的微应用id
+            </summary>
+        </member>
+        <member name="T:NetSDK.DingTalk.DataContracts.Microapp.VisibleScope">
+            <summary>
+            企业设置的微应用可见范围
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Microapp.VisibleScope.isHidden">
+            <summary>
+            是否仅限管理员可见
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Microapp.VisibleScope.deptVisibleScopes">
+            <summary>
+            微应用的可见部门id列表，格式为JSON数组
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.Microapp.VisibleScope.userVisibleScopes">
+            <summary>
+            微应用的可见用户id列表，格式为JSON数组
+            </summary>
+        </member>
+        <member name="T:NetSDK.DingTalk.DataContracts.User">
+            <summary>
+            成员信息
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.User.userid">
+            <summary>
+            员工唯一标识ID（不可修改）
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.User.name">
+            <summary>
+            成员名称
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.User.dingId">
+            <summary>
+            [详情]钉钉ID
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.User.order">
+            <summary>
+            [详情]表示人员在此部门中的排序，列表是按order的倒序排列输出的，即从大到小排列输出的
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.User.mobile">
+            <summary>
+            [详情]	手机号（ISV不可见）
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.User.tel">
+            <summary>
+            [详情]分机号（ISV不可见）
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.User.workPlace">
+            <summary>
+            [详情]	办公地点（ISV不可见）
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.User.remark">
+            <summary>
+            [详情]	备注（ISV不可见）
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.User.isAdmin">
+            <summary>
+            [详情]是否是企业的管理员, true表示是, false表示不是
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.User.isBoss">
+            <summary>
+            [详情]	是否为企业的老板, true表示是, false表示不是
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.User.isHide">
+            <summary>
+            [详情]是否隐藏号码, true表示是, false表示不是
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.User.isLeader">
+            <summary>
+            [详情]是否是部门的主管, true表示是, false表示不是
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.User.active">
+            <summary>
+            [详情]表示该用户是否激活了钉钉
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.User.department">
+            <summary>
+            [详情]成员所属部门id列表
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.User.position">
+            <summary>
+            [详情]职位信息
+            </summary> 
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.User.email">
+            <summary>
+            [详情]员工的邮箱
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.User.orgEmail">
+            <summary>
+            [详情]员工的企业邮箱
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.User.avatar">
+            <summary>
+            [详情]	头像url 
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.User.jobnumber">
+            <summary>
+            [详情]	员工工号
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.DataContracts.User.extattr">
+            <summary>
+            [详情]扩展属性，可以设置多种属性(但手机上最多只能显示10个扩展属性，具体显示哪些属性，请到OA管理后台->设置->通讯录信息设置和OA管理后台->设置->手机端显示信息设置)
+            </summary>
+        </member>
+        <member name="M:NetSDK.DingTalk.DataContracts.User.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NetSDK.DingTalk.DataContracts.User.CompareTo(NetSDK.DingTalk.DataContracts.User)">
+            <summary>
+            
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NetSDK.DingTalk.Jsapi">
+            <summary>
+            JSAPI
+            </summary>
+        </member>
+        <member name="M:NetSDK.DingTalk.Jsapi.Signature(System.String,System.String,System.String,System.String)">
+            <summary>
+            JS-API权限签名
+            </summary>
+            <param name="noncestr">随机字符串，自己随便填写即可</param>
+            <param name="timestamp">当前时间戳，具体值为当前时间到1970年1月1号的秒数</param>
+            <param name="jsapi_ticket">jsapi_ticket</param>
+            <param name="url">当前网页的URL，不包含#及其后面部分，需要对url中query部分做一次urldecode</param>
+            <returns></returns>
+        </member>
+        <member name="T:NetSDK.DingTalk.JsapiConfig">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.JsapiConfig.agentId">
+            <summary>
+            必填，微应用ID，
+            普通企业可以通过OA后台的微应用－设置查看agentID，I
+            SV需要通过调用授权成功后的get_auth_info获取授权方的agentid
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.JsapiConfig.corpId">
+            <summary>
+            必填，企业ID
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.JsapiConfig.timeStamp">
+            <summary>
+            必填，生成签名的时间戳，默认已生成，
+            具体值为当前时间到1970年1月1号的秒数,
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.JsapiConfig.nonceStr">
+            <summary>
+            必填，生成签名的随机串，默认已生成
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.JsapiConfig.signature">
+            <summary>
+            必填，签名
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.JsapiConfig.type">
+            <summary>
+             //选填。0表示微应用的jsapi,1表示服务窗的jsapi。不填默认为0。该参数从dingtalk.js的0.8.3版本开始支持
+            </summary>
+        </member>
+        <member name="P:NetSDK.DingTalk.JsapiConfig.jsApiList">
+            <summary>
+            必填，需要使用的jsapi列表，注意：不要带dd。 
+            示例：[ 'runtime.info', 'biz.contact.choose','device.notification.confirm', 'device.notification.alert','device.notification.prompt', 'biz.ding.post','biz.util.openLink' ] 
+            </summary>
+        </member>
+        <member name="M:NetSDK.DingTalk.JsapiConfig.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:NetSDK.DingTalk.JsapiConfig.SetSignature(System.String,System.String)">
+            <summary>
+            设置signature值
+            </summary>
+            <param name="jsapi_ticket">jsapi_ticket</param>
+            <param name="url">当前网页的URL，不包含#及其后面部分，需要对url中query部分做一次urldecode</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
