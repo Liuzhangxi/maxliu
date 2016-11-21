@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{733BB41A-35E7-411F-BD14-ACD3B70268EF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OUDAL</RootNamespace>
+    <AssemblyName>YZHSDAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DataAnnotationsExtensions, Version=5.0.1.16, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\YueZiHuiSuoWeb\packages\DataAnnotationsExtensions.5.0.1.16\lib\NETFramework40\DataAnnotationsExtensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\YueZiHuiSuoWeb\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\YueZiHuiSuoWeb\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\YueZiHuiSuoWeb\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\DLL\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\DLL\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core">
+      <HintPath>..\DLL\MongoDB.Driver.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NetSDK.DingTalk">
+      <HintPath>..\DLL\NetSDK.DingTalk.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\YueZiHuiSuoWeb\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SeanCommon, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\SeanCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\YueZiHuiSuoWeb\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\YueZiHuiSuoWeb\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\YueZiHuiSuoWeb\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\YueZiHuiSuoWeb\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\YueZiHuiSuoWeb\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\YueZiHuiSuoWeb\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLL\BLLExtension.cs" />
+    <Compile Include="BLL\CaiJinInfoBLL.cs" />
+    <Compile Include="BLL\CaipuBLL.cs" />
+    <Compile Include="BLL\CaipuModelBLL.cs" />
+    <Compile Include="BLL\CaipuModelTypeBLL.cs" />
+    <Compile Include="BLL\CanOtherInfoBLL.cs" />
+    <Compile Include="BLL\ChildCareDetailBLL.cs" />
+    <Compile Include="BLL\ChildCareMainBLL.cs" />
+    <Compile Include="BLL\CustomerPingXiangBLL.cs" />
+    <Compile Include="BLL\DayTypeBLL.cs" />
+    <Compile Include="BLL\DDShouKuanBLL.cs" />
+    <Compile Include="BLL\DietDayNoteBLL.cs" />
+    <Compile Include="BLL\DietSpecialBLL.cs" />
+    <Compile Include="BLL\DingDan.cs" />
+    <Compile Include="BLL\FloorInfoBLL.cs" />
+    <Compile Include="BLL\GuDingZiChanBLL.cs" />
+    <Compile Include="BLL\GuDingZiChanMXBLL.cs" />
+    <Compile Include="BLL\GuYuanDepartmentBLL.cs" />
+    <Compile Include="BLL\GuYuanGroupBLL.cs" />
+    <Compile Include="BLL\GuYuanKaoQinBLL.cs" />
+    <Compile Include="BLL\GuYuanUserBLL.cs" />
+    <Compile Include="BLL\HeTongServiceBLL.cs" />
+    <Compile Include="BLL\HeTongServiceModelBLL.cs" />
+    <Compile Include="BLL\HuLiRegistBLL.cs" />
+    <Compile Include="BLL\HuoPingBLL.cs" />
+    <Compile Include="BLL\HuoPingBuMenKuCunBLL.cs" />
+    <Compile Include="BLL\HuoPingCaiGouBLL.cs" />
+    <Compile Include="BLL\HuoPingCaiGouDanBLL.cs" />
+    <Compile Include="BLL\HuoPingOutBLL.cs" />
+    <Compile Include="BLL\HuoPingPanKuBLL.cs" />
+    <Compile Include="BLL\HuoPingRukuBLL.cs" />
+    <Compile Include="BLL\HuoPingRukuDanBLL.cs" />
+    <Compile Include="BLL\HuoPingShenQingBLL.cs" />
+    <Compile Include="BLL\IdName.cs" />
+    <Compile Include="BLL\JiaMengShangInfoBLL.cs" />
+    <Compile Include="BLL\JiaoGeFeeBLL.cs" />
+    <Compile Include="BLL\JieDianGengZongBLL.cs" />
+    <Compile Include="BLL\JmsDirectoryBLL.cs" />
+    <Compile Include="BLL\JmsFileBLL.cs" />
+    <Compile Include="BLL\JMSGengZongBLL.cs" />
+    <Compile Include="BLL\JMSJieDianClassModelBLL.cs" />
+    <Compile Include="BLL\JMSJieDianClassObjBLL.cs" />
+    <Compile Include="BLL\JMSJieDianModelBLL.cs" />
+    <Compile Include="BLL\JMSJieDianMXBLL.cs" />
+    <Compile Include="BLL\JMSJieDianMXObjBLL.cs" />
+    <Compile Include="BLL\JMSJieDianObjBLL.cs" />
+    <Compile Include="BLL\JmslxrBLL.cs" />
+    <Compile Include="BLL\JMSShouKuanBLL.cs" />
+    <Compile Include="BLL\JMSShouKuanRuleBLL.cs" />
+    <Compile Include="BLL\KeHuBLL.cs" />
+    <Compile Include="BLL\KeHuJieDianClassModelBLL.cs" />
+    <Compile Include="BLL\KeHuJieDianClassObjBLL.cs" />
+    <Compile Include="BLL\KeHuJieDianModelBLL.cs" />
+    <Compile Include="BLL\KeHuJieDianObjBLL.cs" />
+    <Compile Include="BLL\KeMuBLL.cs" />
+    <Compile Include="BLL\KeRenPeiCanBLL.cs" />
+    <Compile Include="BLL\KhHeTongBLL.cs" />
+    <Compile Include="BLL\MenDianFeeBLL.cs" />
+    <Compile Include="BLL\MenDianZhiBiaoBLL.cs" />
+    <Compile Include="BLL\PaiBanBLL.cs" />
+    <Compile Include="BLL\PaiBanTypeBLL.cs" />
+    <Compile Include="BLL\PingXiangInfoBLL.cs" />
+    <Compile Include="BLL\PinYinHelper.cs" />
+    <Compile Include="BLL\RoomCheckInBLL.cs" />
+    <Compile Include="BLL\RoomInfoBLL.cs" />
+    <Compile Include="BLL\ServiceReportBLL.cs" />
+    <Compile Include="BLL\SmsLogBLL.cs" />
+    <Compile Include="BLL\StudentBLL.cs" />
+    <Compile Include="BLL\TrainingRecordBLL.cs" />
+    <Compile Include="BLL\YiHaoPingBLL.cs" />
+    <Compile Include="BLL\DingTalkBLL.cs" />
+    <Compile Include="Migrations\201608150218513_InitialCreate.cs" />
+    <Compile Include="Migrations\201608150218513_InitialCreate.Designer.cs">
+      <DependentUpon>201608150218513_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ModelBase\BootTreeViewModel.cs" />
+    <Compile Include="Model\CaiJinInfo.cs" />
+    <Compile Include="Model\Caipu.cs" />
+    <Compile Include="Model\CaipuModel.cs" />
+    <Compile Include="Model\CaipuModelType.cs" />
+    <Compile Include="Model\CanOtherInfo.cs" />
+    <Compile Include="Model\ChildCareDetail.cs" />
+    <Compile Include="Model\ChildCareMain.cs" />
+    <Compile Include="Model\CustomerPingXiang.cs" />
+    <Compile Include="Model\DayType.cs" />
+    <Compile Include="Model\DDShouKuan.cs" />
+    <Compile Include="Model\DietDayNote.cs" />
+    <Compile Include="Model\DietSpecial.cs" />
+    <Compile Include="Model\DingTalkKaoQin.cs" />
+    <Compile Include="Model\DingTalkUser.cs" />
+    <Compile Include="Model\FloorInfo.cs" />
+    <Compile Include="Model\GuDingZiChan.cs" />
+    <Compile Include="Model\GuDingZiChanMX.cs" />
+    <Compile Include="Model\GuYuanDepartment.cs" />
+    <Compile Include="Model\GuYuanGroup.cs" />
+    <Compile Include="Model\GuYuanKaoQin.cs" />
+    <Compile Include="Model\GuYuanUser.cs" />
+    <Compile Include="Model\HeTongService.cs" />
+    <Compile Include="Model\HeTongServiceModel.cs" />
+    <Compile Include="Model\HuLiRegist.cs" />
+    <Compile Include="Model\HuoPing.cs" />
+    <Compile Include="Model\HuoPingBuMenKuCun.cs" />
+    <Compile Include="Model\HuoPingCaiGou.cs" />
+    <Compile Include="Model\HuoPingCaiGouDan.cs" />
+    <Compile Include="Model\HuoPingOut.cs" />
+    <Compile Include="Model\HuoPingPanKu.cs" />
+    <Compile Include="Model\HuoPingRuku.cs" />
+    <Compile Include="Model\HuoPingRukuDan.cs" />
+    <Compile Include="Model\HuoPingShenQing.cs" />
+    <Compile Include="Model\JiaMengShangInfo.cs" />
+    <Compile Include="Model\JiaoGeFee.cs" />
+    <Compile Include="Model\JieDianGengZong.cs" />
+    <Compile Include="Model\JmsDirectory.cs" />
+    <Compile Include="Model\JmsFile.cs" />
+    <Compile Include="Model\JMSGengZong.cs" />
+    <Compile Include="Model\JMSJieDianClassModel.cs" />
+    <Compile Include="Model\JMSJieDianClassModel_self.cs" />
+    <Compile Include="Model\JMSJieDianClassObj.cs" />
+    <Compile Include="Model\JMSJieDianEntity.cs" />
+    <Compile Include="Model\JMSJieDianModel_self.cs" />
+    <Compile Include="Model\JMSJieDianModel.cs" />
+    <Compile Include="Model\JMSJieDianMXModel.cs" />
+    <Compile Include="Model\JMSJieDianMXModel_self.cs" />
+    <Compile Include="Model\JMSJieDianMXObj.cs" />
+    <Compile Include="Model\JMSJieDianObj.cs" />
+    <Compile Include="Model\Jmslxr.cs" />
+    <Compile Include="Model\JMSShouKuan.cs" />
+    <Compile Include="Model\JMSShouKuanRule.cs" />
+    <Compile Include="Model\KeHu.cs" />
+    <Compile Include="Model\KeHuJieDianClassModel.cs" />
+    <Compile Include="Model\KeHuJieDianClassObj.cs" />
+    <Compile Include="Model\KeHuJieDianModel.cs" />
+    <Compile Include="Model\KeHuJieDianObj.cs" />
+    <Compile Include="Model\KeMu.cs" />
+    <Compile Include="Model\KeRenPeiCan.cs" />
+    <Compile Include="Model\KhHeTong.cs" />
+    <Compile Include="Model\MenDianFee.cs" />
+    <Compile Include="Model\MenDianZhiBiao.cs" />
+    <Compile Include="Model\PaiBan.cs" />
+    <Compile Include="Model\PaiBanType.cs" />
+    <Compile Include="Model\PingXiangInfo.cs" />
+    <Compile Include="Model\RoomCheckIn.cs" />
+    <Compile Include="Model\RoomInfo.cs" />
+    <Compile Include="Model\Sales\SalesDbContext.cs" />
+    <Compile Include="Model\Sales\salesDept.cs" />
+    <Compile Include="Model\Sales\SalesKeHuFangWen.cs" />
+    <Compile Include="Model\Sales\SalesKeHuGenZhong.cs" />
+    <Compile Include="Model\Sales\SalesTable.cs" />
+    <Compile Include="Model\Sales\yixiangKehuView.cs" />
+    <Compile Include="Model\Sales\yuezihuiSuoInfo.cs" />
+    <Compile Include="Model\ServiceReport.cs" />
+    <Compile Include="Model\SmsLog.cs" />
+    <Compile Include="Model\Student.cs" />
+    <Compile Include="Model\TrainingRecord.cs" />
+    <Compile Include="Model\UserDefine\CaiPuState.cs" />
+    <Compile Include="Model\UserDefine\FloorRoomStateResp.cs" />
+    <Compile Include="Model\UserDefine\KeHuRoom.cs" />
+    <Compile Include="Model\UserDefine\ShouKuanInfo.cs" />
+    <Compile Include="Model\UserDefine\TrainingRecordSelf.cs" />
+    <Compile Include="Model\UserDefine\UserHeTongLimit.cs" />
+    <Compile Include="Model\YiHaoPing.cs" />
+    <Compile Include="Model\YixiangKehu.cs" />
+    <Compile Include="Model\YueSaoModel\Kehu.cs" />
+    <Compile Include="Model\YueSaoModel\salesDept.cs" />
+    <Compile Include="Model\YueSaoModel\Sales_YouxiaoKehu.cs" />
+    <Compile Include="Model\YueSaoModel\youxiaokehu.cs" />
+    <Compile Include="Model\YueSaoModel\YuezihuiSuoInfo.cs" />
+    <Compile Include="MongoProxy\test1.cs" />
+    <Compile Include="MongoProxy\testModel1.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="YueSaoErpContext.cs" />
+    <Compile Include="ModelBase\AccessLog.cs" />
+    <Compile Include="ModelBase\Company.cs" />
+    <Compile Include="ModelBase\DBConst.cs" />
+    <Compile Include="ModelBase\Departments.cs" />
+    <Compile Include="ModelBase\DepartmentUsers.cs" />
+    <Compile Include="ModelBase\Dictionary.cs" />
+    <Compile Include="ModelBase\DictionaryItem.cs" />
+    <Compile Include="ModelBase\Function.cs" />
+    <Compile Include="ModelBase\Role.cs" />
+    <Compile Include="ModelBase\RoleFunction.cs" />
+    <Compile Include="ModelBase\RoleUser.cs" />
+    <Compile Include="ModelBase\SearchBase.cs" />
+    <Compile Include="ModelBase\SysCode.cs" />
+    <Compile Include="ModelBase\SystemUser.cs" />
+    <Compile Include="BLL\UserBLL.cs" />
+    <Compile Include="Context.cs" />
+    <Compile Include="BLL\DepartmentBLL.cs" />
+    <Compile Include="ModelBase\Attachment.cs" />
+    <Compile Include="Model\AccessLogs.cs" />
+    <Compile Include="Model\Client.cs" />
+    <Compile Include="Model\ClientContact.cs" />
+    <Compile Include="Model\YueSaoModel\DingDan.cs" />
+    <Compile Include="Model\Project.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BLL\UserName.cs" />
+    <Compile Include="BLL\ViewRole.cs" />
+    <Compile Include="BLL\ViewUser.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201608150218513_InitialCreate.resx">
+      <DependentUpon>201608150218513_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
